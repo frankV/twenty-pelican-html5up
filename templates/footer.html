@@ -1,0 +1,14 @@
+<!-- Footer -->
+<footer id="footer">
+
+    <ul class="icons">
+      {% for title, link in SOCIAL %}
+        <li>
+          <a href="{{ link }}" class="icon circle fa fa-{{ title }}"><span class="label">{{ title }}</span></a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <span class="copyright">&copy; Untitled. All rights reserved. Design: <a href="http://html5up.net">HTML5 UP</a>.</span>
+
+</footer>

@@ -1,0 +1,76 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.dropotron.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/skel-layers.min.js"></script>
+    <script src="/js/init.js"></script>
+    <link rel="stylesheet" href="/css/pygment.css" />
+    <noscript>
+        <link rel="stylesheet" href="/css/skel.css" />
+        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/style-noscript.css" />
+    </noscript>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link  href="http://fonts.googleapis.com/css?family=Anonymous+Pro:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css" >
+    <!--[if lte IE 8]><link rel="stylesheet" href="/css/ie/v8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie/v9.css" /><![endif]-->
+    {% if FEED_RSS %}
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }}-Feed" />
+    {% endif %}
+
+    {% block head %}
+    <title>{% block title %}{{ SITENAME }} {{ TAGLINE }}{% endblock title %}</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width">
+    {% endblock head %}
+</head>
+
+<body class="{% if page_name %}{{ page_name|sidebar }}{% endif %} loading">
+
+
+
+    <!-- Header -->
+    <header id="header" {% if page_name == 'index' %}class="alt"{% endif %}>
+        <h1 class="logo">
+            <a href="{{ SITEURL }}">{{ SITENAME }}, design Twenty <span> by html5 up</span></a>
+        </h1>
+        <nav id="nav">
+            <ul>
+                <!-- <li class="current"><a href="index.html">Welcome</a></li> -->
+                {% if DISPLAY_PAGES_ON_MENU %}
+                    {% for page in PAGES %}
+                        <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+                    {% endfor %}
+                {% endif %}
+                {% for title, link in MENUITEMS %}
+                    <li><a href="{{ link }}">{{ title }}</a></li>
+                {% endfor %}
+                <li class="submenu">
+                    <a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Blog</a>
+                    <ul>
+                        {% for cat, null in categories %}
+                            {% if cat != 'blog' %}
+                            <li {% if cat == category %}class="active"{% endif %}>
+                                <a href="{{ SITEURL }}/category/{{ cat|lower }}/">{{ cat }}</a>
+                            </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li><a href="#" class="button special">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    {% include 'footer.html' %}
+
+</body>
+</html>

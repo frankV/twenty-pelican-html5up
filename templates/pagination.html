@@ -1,0 +1,40 @@
+{% if DEFAULT_PAGINATION %}
+
+<div class="row ">
+
+    <div class="4u pagination-left">
+        <section>
+            <header>
+            {% if articles_page.has_previous() %}
+                {% if articles_page.previous_page_number() == 1 %}
+                    <a href="{{ SITEURL }}/{{ page_name }}.html">
+                {% else %}
+                    <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.previous_page_number() }}.html">
+                {% endif %}
+                &larr;&nbsp;Newer posts</a>
+            {% else %}
+                &nbsp;
+            {% endif %}
+            </header>
+        </section>
+    </div>
+
+    <div class="4u pagination-middle">
+        <section>
+            <header>Page {{ articles_page.number }} / {{ articles_paginator.num_pages }}</header>
+        </section>
+    </div>
+
+    <div class="4u pagination-right">
+        <section>
+            <header>
+            {% if articles_page.has_next() %}
+                <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">Older posts&nbsp;&rarr;</a>
+            {% endif %}
+            </header>
+        </section>
+    </div>
+
+</div>
+
+{% endif %}
