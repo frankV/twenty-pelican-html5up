@@ -7,14 +7,18 @@
 <article id="main">
 
   <header class="special container">
-    <span class="icon fa-mobile"></span>
+    {% if page.self == 'True' %}
+      <span class="icon"><img class="clown" src="/images/me.jpg" ></span>
+    {% else %}
+      <span class="icon fa-{{ page.icon }}"></span>
+    {% endif %}
     <h2>{{ page.title }}</h2>
     <!-- add page sub title here -->
-    <p>Where that in the center faces the nameless horrors alone.</p>
+    <p>$ cat /pages/{{ page.title|lower }}/index.html | grep '{{ page.title }}'</p>
   </header>
 
   <!-- One -->
-  <section class="wrapper style4 container">
+  <section id="page" class="wrapper style4 container">
 
     <!-- Content -->
       <div class="content">

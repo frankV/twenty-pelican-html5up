@@ -7,17 +7,18 @@
 <article id="main">
 
   <header class="special container">
-    <span class="icon fa-bar-chart-o"></span>
-    <h2>As this is my <strong>twentieth</strong> freebie for HTML5 UP<br />
-    I decided to give it a really creative name.</h2>
-    <p>Turns out <strong>Twenty</strong> was the best I could come up with. Anyway, lame name aside,<br />
-    it's minimally designed, fully responsive, built on HTML5/CSS3/<strong>skel</strong>,
-    and, like all my stuff,<br />
-    released for free under the <a href="http://html5up.net/license">Creative Commons Attribution 3.0</a> license. Have fun!</p>
+    <span class="icon fa-stack fa-lg">
+      <i class="fa fa-square fa-stack-2x"></i>
+      <i class="fa fa-terminal fa-stack-1x fa-inverse"></i>
+    </span>
+    <h2>Lover of <strong>programming</strong>, <strong>black teas</strong>, and <strong>bbq</strong>.</h2>
+    <p>Good with Python, Javascript, UI, data, & maths.<br>
+      I build things for fun and profit :)<br>
+      <strong>Go Noles!</strong></p>
   </header>
 
   <!-- One -->
-  <section class="wrapper style2 container special-alt">
+  <section class="wrapper style2 container special-alt" style="display:none;">
     <div class="row half">
       <div class="8u">
 
@@ -47,9 +48,15 @@
     </div>
   </section>
 
+  <hr>
+
   <!-- Two -->
   <section class="wrapper style1 container special">
     <div class="row">
+
+      <div class="12u">
+        <h2>Latest Posts</h2>
+      </div>
 
       {% for article in articles_page.object_list %}
       <div class="4u">
@@ -57,12 +64,12 @@
         <section>
           <span class="icon feature fa-{{ article.icon }}"></span>
           <header>
-            <a href="{{ SITEURL }}/{{ article.url }}" rel='bookmark'><h3>{{ article.title }}</h3></a>
+            <a href="/{{ article.url }}" rel='bookmark'><h3>{{ article.title }}</h3></a>
           </header>
-          <p>{{ article.content[:196]|striptags }}</p>
+          <p>{{ article.content[:196]|striptags }}...</p>
           <footer>
               <ul class="buttons">
-                  <li><a href="{{ SITEURL }}/{{ article.url }}" class="button small">Read More</a></li>
+                  <li><a href="/{{ article.url }}" class="button small">Read More</a></li>
               </ul>
           </footer>
         </section>
@@ -78,7 +85,7 @@
 
 </article>
 
-{% include 'coolstuff.html' %}
+{#% include 'coolstuff.html' %#}
 {% include 'cta.html' %}
 
 {% endblock content %}

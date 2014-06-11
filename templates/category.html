@@ -10,7 +10,7 @@
     <span class="icon fa-mobile"></span>
     <h2>{{ category }}</h2>
     <!-- add page sub title here -->
-    <p>Category Template</p>
+    <p>$ grep -r -l "{{ category|lower }}" /content/{{ category|lower }}/*.html</p>
   </header>
 
     <!-- One -->
@@ -24,7 +24,7 @@
                     <section>
                         <!-- <a href="#" class="image feature"><img src="images/pic03.jpg" alt="" /></a> -->
                         <header>
-                            <a href="{{ SITEURL }}/{{ article.url }}"><h3>{{ article.title }}</h3></a>
+                            <a href="/{{ article.url }}"><h3>{{ article.title }}</h3></a>
                         </header>
                         <p>{{ article.summary|striptags }}</p>
                     </section>

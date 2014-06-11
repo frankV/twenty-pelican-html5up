@@ -9,6 +9,7 @@
     <script src="/js/skel.min.js"></script>
     <script src="/js/skel-layers.min.js"></script>
     <script src="/js/init.js"></script>
+    <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/pygment.css" />
     <noscript>
         <link rel="stylesheet" href="/css/skel.css" />
@@ -31,39 +32,39 @@
     {% endblock head %}
 </head>
 
-<body class="{% if page_name %}{{ page_name|sidebar }}{% endif %} loading">
+<body class="{% if page_name %}{{ page_name|sidebar }}{% else %}no-sidebar{% endif %} loading">
 
 
 
     <!-- Header -->
     <header id="header" {% if page_name == 'index' %}class="alt"{% endif %}>
         <h1 class="logo">
-            <a href="{{ SITEURL }}">{{ SITENAME }}, design Twenty <span> by html5 up</span></a>
+            <a href="/">{{ SITENAME }}<span>.com</span></a>
         </h1>
         <nav id="nav">
             <ul>
                 <!-- <li class="current"><a href="index.html">Welcome</a></li> -->
                 {% if DISPLAY_PAGES_ON_MENU %}
                     {% for page in PAGES %}
-                        <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+                        <li><a href="/{{ page.url }}">{{ page.title }}</a></li>
                     {% endfor %}
                 {% endif %}
                 {% for title, link in MENUITEMS %}
                     <li><a href="{{ link }}">{{ title }}</a></li>
                 {% endfor %}
                 <li class="submenu">
-                    <a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Blog</a>
+                    <a href="/{{ ARCHIVES_URL }}">Blog</a>
                     <ul>
                         {% for cat, null in categories %}
                             {% if cat != 'blog' %}
                             <li {% if cat == category %}class="active"{% endif %}>
-                                <a href="{{ SITEURL }}/category/{{ cat|lower }}/">{{ cat }}</a>
+                                <a href="/category/{{ cat|lower }}/">{{ cat }}</a>
                             </li>
                             {% endif %}
                         {% endfor %}
                     </ul>
                 </li>
-                <li><a href="#" class="button special">Sign Up</a></li>
+                <li><a href="http://www.cuttlesoft.com" class="button special">See More</a></li>
             </ul>
         </nav>
     </header>

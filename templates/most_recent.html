@@ -1,17 +1,20 @@
     <section class="wrapper style1 container special">
         <div class="row">
+          <h2 class="space-above">Latest Posts</h2>
+        </div>
+        <div class="row">
           {% for article in articles[:3] %}
           <div class="4u">
 
             <section>
               <span class="icon feature fa-{{ article.icon }}"></span>
               <header>
-                <a href="{{ SITEURL }}/{{ article.url }}" rel='bookmark'><h3>{{ article.title }}</h3></a>
+                <a href="/{{ article.url }}" rel='bookmark'><h3>{{ article.title }}</h3></a>
               </header>
-              <p>{{ article.content[:196]|striptags }}</p>
+              <p>{{ article.content[:196]|striptags }}...</p>
               <footer>
                   <ul class="buttons">
-                      <li><a href="{{ SITEURL }}/{{ article.url }}" class="button small">Read More</a></li>
+                      <li><a href="/{{ article.url }}" class="button small">Read More</a></li>
                   </ul>
               </footer>
             </section>

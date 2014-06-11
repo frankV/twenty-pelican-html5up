@@ -2,7 +2,7 @@
 ===================================
 This is an adaptation of the [html5up](html5up.net) template "Twenty" for the Python static site generator [Pelican](http://docs.getpelican.com/).
 
-I made this because I wanted to use it on my personal site [frankvalcarcel.com](frankvalcarcel.com) where you can also see a demo. Keep in mind I have made customizations to fit my tastes so if you like to see those please check out the branch: `frankvalcarcel.com`
+I made this because I wanted to use it on my personal site [frankvalcarcel.com](http://frankvalcarcel.com) where you can also see a demo. Keep in mind I have made customizations to fit my tastes so if you like to see those please check out the branch: `frankvalcarcel.com`
 
  - The mercurial repo for this project: [bitbucket.org/frankv/twenty-pelican-html5up](https://bitbucket.org/frankv/twenty-pelican-html5up)
 
