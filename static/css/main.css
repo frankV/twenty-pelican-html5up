@@ -1,0 +1,27 @@
+#banner .inner {
+  border-radius: 50%;
+  padding: 16px;
+}
+
+img.logo {
+  height: 250px;
+}
+
+img.clown {
+  height: 100%;
+  border-radius: 50%;
+  margin-top: -49px;
+}
+
+#post, #page {
+  padding: 1em 3em;
+  letter-spacing: 0.01rem;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 1.5;
+}
+
+.highlight {
+  font-size: 14px;
+}
