@@ -10,7 +10,9 @@
     <span class="icon fa-{{ article.icon }}"></span>
     <h2>{{ article.title }}</h2>
     <!-- add page sub title here -->
-    <p>posted {{ article.locale_date|pretty_date }}</p>
+    <p>
+        posted <span data-date="{{ article.locale_date }}" id="pretty_date"></span>
+    </p>
   </header>
 
   <!-- One -->
@@ -34,7 +36,7 @@
     </section>
 
     <!-- Two -->
-    {% include 'most_recent.html' %}
+    {% include 'most_recent_alt.html' %}
 
     {% if DISQUS_SITENAME %}
     <section class="wrapper container">

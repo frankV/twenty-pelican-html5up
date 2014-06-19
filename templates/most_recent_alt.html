@@ -3,8 +3,7 @@
           <h2 class="space-above">Latest Posts</h2>
         </div>
         <div class="row">
-          {% for article in all_articles %}
-          {% if loop.index < 4 %}
+          {% for article in articles[:3] %}
           <div class="4u">
 
             <section>
@@ -21,8 +20,6 @@
             </section>
 
           </div>
-          {% else %}
-          {% endif %}
           {% endfor %}
         </div>
     </section>

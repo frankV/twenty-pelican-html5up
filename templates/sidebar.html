@@ -1,0 +1,19 @@
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        {% for article in all_articles %}
+        {% if article.featured == 'True' %}
+            <section>
+                <header>
+                    <h3>{{ article.title }}</h3>
+                </header>
+                <p>{{ article.summary[:128]|striptags }}...</p>
+                <footer>
+                    <ul class="buttons">
+                        <li><a href="/{{ article.url }}" class="button small">Learn More</a></li>
+                    </ul>
+                </footer>
+            </section>
+        {% endif %}
+        {% endfor %}
+    </div>

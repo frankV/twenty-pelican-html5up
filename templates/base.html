@@ -1,5 +1,8 @@
 <html>
 <head>
+    {% block head %}
+    <title>{% block title %}{{ SITENAME }} {{ TAGLINE }}{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width">
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -9,6 +12,7 @@
     <script src="/js/skel.min.js"></script>
     <script src="/js/skel-layers.min.js"></script>
     <script src="/js/init.js"></script>
+    <script src="/js/scripts.js"></script>
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/pygment.css" />
     <noscript>
@@ -24,11 +28,7 @@
     {% if FEED_RSS %}
         <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }}-Feed" />
     {% endif %}
-
-    {% block head %}
-    <title>{% block title %}{{ SITENAME }} {{ TAGLINE }}{% endblock title %}</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png"/>
     {% endblock head %}
 </head>
 
@@ -74,4 +74,11 @@
     {% include 'footer.html' %}
 
 </body>
+
+<script>
+$( document ).ready(function() {
+    $('#pretty_date').text(pretty_date($('#pretty_date').attr('data-date')));
+});
+</script>
+
 </html>
