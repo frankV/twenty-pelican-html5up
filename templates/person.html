@@ -1,6 +1,50 @@
-<h2><a href="{{ SITEURL }}/pages/gallery.html#{{ article.album }}">{{ article.album }}</a></h2>
+{% extends "base.html" %}
+
+{% block title %}{{ article.title|striptags }} | {{ super() }}{% endblock title %}
+
+<style>
+img.clown {
+    height: 100%;
+    border-radius: 50%;
+    margin-top: -49px;
+}
+</style>
+
+{% block content %}
+<!-- Main -->
+<article id="main">
+
+  <header class="special container">
+    <span class="icon"><img class="clown", src="{{ article.headshot }}"></span>
+    <h2>{{ article.title }}</h2>
+    <!-- add page sub title here -->
+    <p>{{ article.position }}</p>
+    <p>{{ article.affiliation }}</p>
+  </header>
+
+  <!-- One -->
+    <section class="wrapper style4 container">
+
+      <!-- Content -->
+        <div class="content">
+          <section>
+            <h2>{{ article.title }}</h2>
+            <h3>{{ article.position }}</h>
+            <h3>{{ article.affiliation }}</h3>
+            <!-- <a href="#" class="image feature"><img src="images/pic04.jpg" alt="" /></a> -->
+            <p>{{ article.content }}</p>
+          </section>
+        </div>
+
+    </section>
+
+  </article>
+
+{% endblock content %}
+
+<!-- <h2><a href="{{ SITEURL }}/pages/people.html#{{ article.album }}">{{ article.album }}</a></h2>
     <ul>
     {% for image in article.galleryimages %}
     <li><a class="{{ article.album }} cboxElement" href="{{ SITEURL }}/static/images/gallery/{{ article.album }}/{{ image }}"><img src="{{ SITEURL }}/static/images/gallery200x200/{{ article.album }}/{{ image }}"></a></li>
     {% endfor %}
-    </ul>
+    </ul> -->
