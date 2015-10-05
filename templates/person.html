@@ -23,6 +23,9 @@ img.clown {
     <!-- add page sub title here -->
     <p>{{ page.position }}<br>
     {{ page.affiliation }}<br>
+    {% if page.fellowship %}
+    {{ page.fellowship }} Fellow<br>
+    {% endif %}
     {{ page.email }}</p>
   </header>
 
