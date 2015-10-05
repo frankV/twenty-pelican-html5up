@@ -21,10 +21,13 @@ img.clown {
     <span class="icon"><img src="{{ page.headshot }}" class="clown"></span>
     <h2>{{ page.title }}</h2>
     <!-- add page sub title here -->
-    <p>{{ page.position }}<br>
-    {{ page.affiliation }}<br>
+    <p>{{ page.position }}
+      {% if page.position_suffix %}{{ page.position_suffix }}{% endif %}<br>
+    {% if page.affiliation %}
+      {{ page.affiliation }}<br>
+    {% endif %}
     {% if page.fellowship %}
-    {{ page.fellowship }} Fellow<br>
+      {{ page.fellowship }} Fellow<br>
     {% endif %}
     {{ page.email }}</p>
   </header>
