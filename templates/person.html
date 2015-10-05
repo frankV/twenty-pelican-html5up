@@ -1,9 +1,12 @@
 {% extends "base.html" %}
 
-{% block title %}{{ article.title|striptags }} | {{ super() }}{% endblock title %}
+{% block title %}{{ page.title|striptags }} | {{ super() }}{% endblock title %}
 
 {% block content %}
 <style>
+.image:before{
+  background-image: None;
+}
 img.clown {
   height: 100%;
   border-radius: 50%;
@@ -14,11 +17,12 @@ img.clown {
 <article id="main">
 
   <header class="special container">
-    <span class="icon"><img src="{{ article.headshot }}" class="clown"></span>
-    <h2>{{ article.title }}</h2>
+    <span class="icon"><img src="{{ page.headshot }}" class="clown"></span>
+    <h2>{{ page.title }}</h2>
     <!-- add page sub title here -->
-    <p>{{ article.position }}</p>
-    <p>{{ article.affiliation }}</p>
+    <p>{{ page.position }}<br>
+    {{ page.affiliation }}<br>
+    {{ page.email }}</p>
   </header>
 
   <!-- One -->
@@ -27,11 +31,7 @@ img.clown {
       <!-- Content -->
         <div class="content">
           <section>
-            <!-- <h2>{{ article.title }}</h2>
-            <h3>{{ article.position }}</h>
-            <h3>{{ article.affiliation }}</h3> -->
-            <!-- <a href="#" class="image feature"><img src="images/pic04.jpg" alt="" /></a> -->
-            <p>{{ article.content }}</p>
+            <p>{{ page.content }}</p>
           </section>
         </div>
 
@@ -40,10 +40,3 @@ img.clown {
   </article>
 
 {% endblock content %}
-
-<!-- <h2><a href="{{ SITEURL }}/pages/people.html#{{ article.album }}">{{ article.album }}</a></h2>
-    <ul>
-    {% for image in article.galleryimages %}
-    <li><a class="{{ article.album }} cboxElement" href="{{ SITEURL }}/static/images/gallery/{{ article.album }}/{{ image }}"><img src="{{ SITEURL }}/static/images/gallery200x200/{{ article.album }}/{{ image }}"></a></li>
-    {% endfor %}
-    </ul> -->

@@ -2,6 +2,16 @@
 
 {% block content %}
 <!-- Main -->
+<style>
+.image:before{
+  background-image: None;
+}
+img.clown {
+  height: 100%;
+  border-radius: 50%;
+  margin-top: -49px;
+}
+</style>
 <article id="main">
 
   <header class="special container">
@@ -16,19 +26,24 @@
 
     <!-- Content -->
       <div class="content">
-        <section>
-          {% for name, person in page.people.items() %}
-            <div class="2u">
+        {% for display_name, position in PEOPLE_POSITION_ORDER %}
+          <section>
+            <h3>{{ display_name }}</h3>
+            <div class="row">
+            {% for name, person in page.persons[position].items() %}
+              <div class="2u">
 
-              <section>
-                <a href="person" class="image feature"><img src="{{ person.headshot }}" alt="{{ name }}"/></a>
-                <a name="{{ person.title }}">{{ person.title }}</a>
-              </section>
-            </div>
+                 <!-- The initial slash is important because otherwise the links
+                  are relative to the "people" page -->
+                  <a href="/{{ person.url }}" class="image feature"><img src="{{ person.headshot }}" alt="{{ name }}"/>
+                  <h4>{{ person.title }}</h4></a>
+                </section>
+              </div>
 
-          {% endfor %}
+            {% endfor %}
+        </div>
+        {% endfor %}
 
-        </section>
       </div>
 
   </section>
