@@ -2,32 +2,14 @@
 
 {% block title %}{{ article.title|striptags }} | {{ super() }}{% endblock title %}
 
+{% block content %}
 <style>
-.image:before{
-  background-image: None;
-}
-.image img{
-  height: 7em;
-  border-radius: 50%;
-  margin-top: -49px;
-}
-header.special .icon {
-			cursor: default;
-			height: 7em;
-			left: 0;
-			position: absolute;
-			text-align: center;
-			top: 1em;
-			width: 100%;
-		}
 img.clown {
-  height: 80;
+  height: 100%;
   border-radius: 50%;
   margin-top: -49px;
 }
 </style>
-
-{% block content %}
 <!-- Main -->
 <article id="main">
 
