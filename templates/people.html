@@ -37,19 +37,17 @@
                     <img src="{{ person.headshot }}" alt="{{ name }}"/>
                   {{ person.title }}</a>
               </div>
-              <!-- If it's the last person in the section or we've gotten to
-              6 people ("2u" class means out of the 12 columns of the webpage,
-              each person's photo and name will take up 2 units, hence divisible
-              by 6), close the row -->
-                {% if loop.last or loop.index is divisibleby(6) %}
+
+                {% if loop.last  %}
+                <!-- If it's the last person in the section or we've gotten to
+                6 people ("2u" class means out of the 12 columns of the webpage,
+                each person's photo and name will take up 2 units, hence divisible
+                by 6), close the row -->
                   </div>
-                  <!-- If divisible by 6 and not the last, then add a new row -->
-                  {% if loop.index is divisibleby(6) and not loop.last %}
-                    <div class="row">
-                  {% endif %}
                 {% endif %}
 
               {% endfor %}
+         <!-- Close the section if we're out of people -->
          </section>
         {% endfor %}
 
