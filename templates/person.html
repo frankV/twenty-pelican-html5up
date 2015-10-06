@@ -22,10 +22,24 @@ img.clown {
     <h2>{{ page.title }}</h2>
     <!-- add page sub title here -->
     <p>{{ page.position }}
-      {% if page.position_suffix %}{{ page.position_suffix }}{% endif %}<br>
+
+      <!-- If there's a position suffix
+      (e.g. Bioinformatics Analyst I, (Ph.D.)), add it -->
+      {% if page.position_suffix %}
+        {{ page.position_suffix }}
+      {% endif %}
+
+      <!-- If they are alumni, specify -->
+      {% if page.alumni_or_current == "Alumni" %}
+        {{ page.alumni_or_current }}
+      {% endif %}<br>
+
+      <!-- Add program/department affiliation, if applicable -->
     {% if page.affiliation %}
       {{ page.affiliation }}<br>
     {% endif %}
+
+    <!-- Add their fellowship, if applicable -->
     {% if page.fellowship %}
       {{ page.fellowship }} Fellow<br>
     {% endif %}
