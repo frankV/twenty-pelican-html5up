@@ -6,8 +6,8 @@
 .image:before{
   background-image: None;
 }
-.image feature {
-  height: 100%;
+.image.feature img{
+  /*Make headshots circles*/
   border-radius: 50%;
 }
 </style>
@@ -51,12 +51,12 @@
          </section>
         {% endfor %}
 
+
+      <h2><a href="/alumni/index.html">Alumni</h2>
       </div>
 
   </section>
 
-  <!-- Two -->
-  {% include 'most_recent.html' %}
 
   </article>
 {% endblock content %}
