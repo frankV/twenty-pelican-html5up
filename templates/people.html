@@ -25,7 +25,8 @@
 
     <!-- Content -->
       <div class="content">
-        {% for display_name, position in PEOPLE_POSITION_ORDER %}
+        {% for display_name, position in PEOPLE_POSITION_ORDER if not page.persons[position]|length == 0 %}
+
           <section>
             <h3>{{ display_name }}</h3>
             <div class="row">
@@ -35,7 +36,13 @@
                   are relative to the "people" page -->
                   <a href="/{{ person.url }}" class="image feature">
                     <img src="{{ person.headshot }}" alt="{{ name }}"/>
-                  {{ person.title }}</a>
+                  {{ person.title }}
+                  {% if person.alumni_or_current.lower() == 'alumni' %}
+                    <strong>{{ person.current_position }}</strong><br>
+                    {{ '{}-{}'.format(person.date.year,
+                                      person.end_date.split('-')[0]) }}<br>
+                  {% endif %}
+                </a>
               </div>
 
                 {% if loop.last  %}
@@ -51,8 +58,7 @@
          </section>
         {% endfor %}
 
-
-      <h2><a href="/alumni/index.html">Alumni</h2>
+      {{ page.content }}
       </div>
 
   </section>
