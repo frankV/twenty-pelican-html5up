@@ -32,16 +32,15 @@ img.clown {
             <div class="row">
             {% for name, person in page.persons[position].items() %}
               <div class="2u">
-
                  <!-- The initial slash is important because otherwise the links
                   are relative to the "people" page -->
                   <a href="/{{ person.url }}" class="image feature"><img src="{{ person.headshot }}" alt="{{ name }}"/>
-                  <h4>{{ person.title }}</h4></a>
-                </section>
+                  {{ person.title }}</a>
               </div>
 
             {% endfor %}
-        </div>
+          </div>
+         </section>
         {% endfor %}
 
       </div>
