@@ -29,8 +29,10 @@
 
           <section>
             <h3>{{ display_name }}</h3>
-            <div class="row">
             {% for name, person in page.persons[position].items() %}
+              {% if loop.first or loop.index-1 is divisibleby(6) %}
+              <div class="row">
+              {% endif %}
               <div class="2u">
                  <!-- The initial slash is important because otherwise the links
                   are relative to the "people" page -->
