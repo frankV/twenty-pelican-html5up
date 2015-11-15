@@ -45,15 +45,15 @@
                 </a>
               </div>
 
-                {% if loop.last  %}
-                <!-- If it's the last person in the section or we've gotten to
-                6 people ("2u" class means out of the 12 columns of the webpage,
-                each person's photo and name will take up 2 units, hence divisible
-                by 6), close the row -->
-                  </div>
-                {% endif %}
+              {% if loop.last  or loop.index is divisibleby(6) %}
+              <!-- If it's the last person in the section or we've gotten to
+              6 people ("2u" class means out of the 12 columns of the webpage,
+              each person's photo and name will take up 2 units, hence divisible
+              by 6), close the row -->
+                </div>
+              {% endif %}
 
-              {% endfor %}
+            {% endfor %}
          <!-- Close the section if we're out of people -->
          </section>
         {% endfor %}
