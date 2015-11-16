@@ -15,9 +15,9 @@
 
   <header class="special container">
     {% if not page.icon is defined %}
-    <span class="icon mdi-gears"></span>
+    <span class="mdi mdi-gears"></span>
     {% else %}
-    <span class="icon {{ page.icon }}"></span>
+    <span class="{{ page.icon }}"></span>
     {% endif %}
     <h2>{{ page.title }}</h2>
     <!-- add page sub title here -->
