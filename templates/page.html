@@ -3,11 +3,22 @@
 {% block title %}{{ page.title|striptags }} | {{ super() }}{% endblock title %}
 
 {% block content %}
+<style>
+.image:before{
+  background-image: None;
+}
+</style>
+
+
 <!-- Main -->
 <article id="main">
 
   <header class="special container">
-    <span class="icon fa-mobile"></span>
+    {% if not page.icon is defined %}
+    <span class="icon mdi-gears"></span>
+    {% else %}
+    <span class="icon {{ page.icon }}"></span>
+    {% endif %}
     <h2>{{ page.title }}</h2>
     <!-- add page sub title here -->
     <p>Where that in the center faces the nameless horrors alone.</p>

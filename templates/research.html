@@ -1,4 +1,17 @@
-<!-- Three -->
+{% extends "base.html" %}
+
+{% block title %}{{ page.title|striptags }} | {{ super() }}{% endblock title %}
+
+{% block content %}
+<article id="main">
+
+  <header class="special container">
+    <span class="icon mdi-magnify"></span>
+    <!-- add page sub title here -->
+    <p>RNA, neuroscience, pluripotency.</p>
+  </header>
+
+
 <section class="wrapper style3 container special">
 
   <header class="major">
@@ -44,7 +57,7 @@
     <div class="6u">
 
       <section>
-        <a href="#" class="image feature"><img src="images/pic04.jpg" alt="" /></a>
+        <a href="#" class="image feature"><img src="/images/research/immunology_singlecell.png" alt="" /></a>
         <header>
           <h3>And Another Train</h3>
         </header>
@@ -54,10 +67,28 @@
     </div>
   </div>
 
-  <footer class="major">
+  <!-- <footer class="major">
     <ul class="buttons">
       <li><a href="#" class="button">See More</a></li>
     </ul>
-  </footer>
+  </footer> -->
 
 </section>
+
+<section class="wrapper style4 container">
+
+  <!-- Content -->
+    <div class="content">
+      <section>
+        <!-- <a href="#" class="image feature"><img src="images/pic04.jpg" alt="" /></a> -->
+        <p>{{ page.content }}</p>
+      </section>
+    </div>
+
+</section>
+
+<!-- Two -->
+{% include 'most_recent.html' %}
+
+</article>
+{% endblock content %}
