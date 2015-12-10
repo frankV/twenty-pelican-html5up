@@ -5,6 +5,11 @@
 {% block title %}{{ page.title|striptags }} | {{ super() }}{% endblock title %}
 
 {% block content %}
+<style>
+section {
+  margin: 0 0 4em 0;
+}
+</style>
 
 <section class="wrapper style4 container">
 
@@ -17,6 +22,7 @@
 
 
 {% for album, images in page.gallery.iteritems() %}
+<section>
 <h2><a name="{{ album }}">{{ album }}</a></h2>
     {% for image in images %}
       {% if loop.first or (loop.index-1) is divisibleby(6) %}
@@ -25,7 +31,6 @@
       <div class="2u">
         <a class="{{ album }} cboxElement" href="{{ SITEURL }}/images/gallery/{{album}}/{{ image }}" title="{{ image }}"><img src="{{ SITEURL }}/images/gallery/thumbnails/thumbnail_square/{{album}}/{{ image }}"></a>
       </div>
-      {% endfor %}
       {% if loop.last  or loop.index is divisibleby(6) %}
       <!-- If it's the last person in the section or we've gotten to
       6 people ("2u" class means out of the 12 columns of the webpage,
@@ -33,6 +38,8 @@
       by 6), close the row -->
       </div>
       {% endif %}
+    {% endfor %}
+</section>
     {% endfor %}
 
     </div>
