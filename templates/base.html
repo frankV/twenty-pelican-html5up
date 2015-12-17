@@ -24,6 +24,11 @@
     {% if FEED_RSS %}
         <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }}-Feed" />
     {% endif %}
+    <style>
+    body, #skel-layers-wrapper {
+    background: #CFF4EF;
+}
+    </style>
 
     {% block head %}
     <title>{% block title %}{{ SITENAME }} {{ TAGLINE }}{% endblock title %}</title>
