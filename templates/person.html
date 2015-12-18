@@ -18,7 +18,11 @@ img.clown {
 <article id="main">
 
   <header class="special container">
+    {% if page.headshot %}
     <span class="icon"><img src="{{ page.headshot }}" class="clown"></span>
+    {% else %}
+    <span class="icon"><img src="/yeolab_favicon.svg" class="clown"></span>
+    {% endif %}
     <h2>{{ page.title }}</h2>
     <!-- add page sub title here -->
     <p>{{ page.position }}
