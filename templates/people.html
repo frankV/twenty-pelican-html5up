@@ -63,9 +63,9 @@ background: #CFF4EF;}
   <section class="wrapper style4 container">
 
     <div class="row labphoto">
-      <a onmouseover="setImage(this, '/images/people/2015_lab_photo_silly.jpg');"
-      onmouseout="setImage(this, '/images/people/2015_lab_photo.jpg');" alt="#YEOLO" name="img1">
-    <img src="/images/people/lab_photo_2015_Apr_30_00015.jpg" alt="#YEOLO" name="img1" width="100%"/>
+      <a onmouseover="setImage(this, '/images/people/2015_lab_photo_silly.png');"
+      onmouseout="setImage(this, '/images/people/2015_lab_photo.png');" alt="#YEOLO">
+    <img src="/images/people/2015_lab_photo.png" alt="#YEOLO" name="img1" width="100%"/>
   </a>
   </div>
     <!-- Content -->
@@ -85,10 +85,10 @@ background: #CFF4EF;}
                   {% if person.headshot %}
                     <img src="{{ person.headshot }}" alt="{{ name }}"/>
                   {% else %}
-                  <div style="background-color: #83d3c9;">
-                    X
+                  <div class="headshot-placeholder">
+                    {{ name[0].upper() }}
+                    <img src="/images/people/headshot_placeholder.png">
                   </div>
-                   <!-- <img src="/yeolab_favicon.svg" alt="{{ name }}"/> -->
                   {% endif %}
                   {{ person.title }}
                   {% if person.alumni_or_current.lower() == 'alumni' %}
