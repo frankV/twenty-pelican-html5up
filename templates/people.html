@@ -5,22 +5,9 @@
 
 <!-- Toggle serious/silly photo -->
 <script>
-if (document.images) {
-    img1on = new Image();   img1on.src = "/images/people/lab_photo_silly_2015_Apr_30_00015.jpg";
-    img1off = new Image();  img1off.src = "/images/people/lab_photo_2015_Apr_30_00015.jpg";
+function setImage(element, url) {
+  jQuery(element).find('img')[0].src = url;
 }
-function imgOn(imgName) {
-        if (document.images) {
-            document[imgName].src = eval(imgName + "on.src");
-        }
-}
-function imgOff(imgName) {
-        if (document.images) {
-            document[imgName].src = eval(imgName + "off.src");
-        }
-}
-
-
 </script>
 
 
@@ -48,6 +35,18 @@ background: #CFF4EF;}
   width: 100%;
   margin-bottom: 5em;
 }
+.headshot-placeholder {
+    background-image: "/image/people/headshot_placeholder.png";
+    display: flex;
+    border-radius: 50%;
+    /*height: 142px;*/
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 124px;
+    font-weight: bold;
+    font-family: 'Open Sans';
+}
 </style>
 
 
@@ -64,8 +63,9 @@ background: #CFF4EF;}
   <section class="wrapper style4 container">
 
     <div class="row labphoto">
-      <a onmouseover="imgOn('img1');" onmouseout="imgOff('img1');" alt="#YEOLO" name="img1">
-    <!-- <img src="/images/people/lab_photo_2015_Apr_30_00015.jpg" alt="#YEOLO" name="img1"/> -->
+      <a onmouseover="setImage(this, '/images/people/2015_lab_photo_silly.jpg');"
+      onmouseout="setImage(this, '/images/people/2015_lab_photo.jpg');" alt="#YEOLO" name="img1">
+    <img src="/images/people/lab_photo_2015_Apr_30_00015.jpg" alt="#YEOLO" name="img1" width="100%"/>
   </a>
   </div>
     <!-- Content -->
@@ -85,7 +85,10 @@ background: #CFF4EF;}
                   {% if person.headshot %}
                     <img src="{{ person.headshot }}" alt="{{ name }}"/>
                   {% else %}
-                   <img src="/yeolab_favicon.svg" alt="{{ name }}"/>
+                  <div style="background-color: #83d3c9;">
+                    X
+                  </div>
+                   <!-- <img src="/yeolab_favicon.svg" alt="{{ name }}"/> -->
                   {% endif %}
                   {{ person.title }}
                   {% if person.alumni_or_current.lower() == 'alumni' %}
