@@ -36,7 +36,7 @@ background: #CFF4EF;}
   margin-bottom: 5em;
 }
 .headshot-placeholder {
-    background-image: "/image/people/headshot_placeholder.png";
+    background-image: url("/image/people/headshot_placeholder.png");
     display: flex;
     border-radius: 50%;
     /*height: 142px;*/
@@ -86,7 +86,6 @@ background: #CFF4EF;}
                     <img src="{{ person.headshot }}" alt="{{ name }}"/>
                   {% else %}
                   <div class="headshot-placeholder">
-                    {{ name[0].upper() }}
                     <img src="/images/people/headshot_placeholder.png">
                   </div>
                   {% endif %}
