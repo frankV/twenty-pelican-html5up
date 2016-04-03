@@ -5,6 +5,7 @@
 {% block title %}{{ page.title|striptags }} | {{ super() }}{% endblock title %}
 
 {% block content %}
+
 <style>
 section {
   margin: 0 0 4em 0;
@@ -16,31 +17,36 @@ background: #CFF4EF;}
 
 <section class="wrapper style4 container">
 
-  <!-- Content -->
-    <div class="content">
-      <section>
-        <!-- <a href="#" class="image feature"><img src="images/pic04.jpg" alt="" /></a> -->
-        <p>{{ page.content }}</p>
-      </section>
+<!-- Content -->
+  <div class="content">
+    <section>
+      <!-- <a href="#" class="image feature"><img src="images/pic04.jpg" alt="" /></a> -->
+      <p>{{ page.content }}</p>
+    </section>
 
 
-{% for album, images in page.gallery.iteritems() %}
+{% for year, albums in page.gallery.iteritems() %}
 <section>
-<h2><a name="{{ album }}">{{ album }}</a></h2>
-    {% for image in images %}
-      {% if loop.first or (loop.index-1) is divisibleby(6) %}
-        <div class="row">
+<h2><a name="{{ year }}">{{ year }}</a></h2>
+    {% for album, image_urls in albums.iteritems() %}
+    <div class="image-set">
+      {% for image_url in image_urls %}
+        {% if loop.first or (loop.index-1) is divisibleby(6) %}
+          <div class="row">
         {% endif %}
-      <div class="2u">
-        <a class="{{ album }} cboxElement" href="{{ SITEURL }}/images/gallery/{{album}}/{{ image }}" title="{{ image }}"><img src="{{ SITEURL }}/images/gallery/thumbnails/thumbnail_square/{{album}}/{{ image }}"></a>
-      </div>
-      {% if loop.last  or loop.index is divisibleby(6) %}
-      <!-- If it's the last person in the section or we've gotten to
-      6 people ("2u" class means out of the 12 columns of the webpage,
-      each person's photo and name will take up 2 units, hence divisible
-      by 6), close the row -->
-      </div>
-      {% endif %}
+        <div class="2u">
+          <!-- <a class="{{ album }} cboxElement" href="{{ SITEURL }}/images/gallery/{{album}}/{{ image }}" title="{{ image }}"><img src="{{ SITEURL }}/images/gallery/thumbnails/thumbnail_square/{{album}}/{{ image }}"></a> -->
+          <a href="{{ image_url }}" data-lightbox="{{ year }} {{ album }}"><img src="{{ image_url }}"></a>
+        </div>
+        {% if loop.last  or loop.index is divisibleby(6) %}
+        <!-- If it's the last person in the section or we've gotten to
+        6 people ("2u" class means out of the 12 columns of the webpage,
+        each person's photo and name will take up 2 units, hence divisible
+        by 6), close the row -->
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
     {% endfor %}
 </section>
     {% endfor %}
