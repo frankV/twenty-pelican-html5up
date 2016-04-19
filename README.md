@@ -39,7 +39,7 @@ There are currently 12 templates:
 
 ####Caveats
 **1. skel.js**<br>
-html5up uses [skel.js](http://skeljs.org/) to handle responsiveness of their templates. For skel to work right css has to be available at the `{{ SITEURL }}/css/` path. I did not want to alter any of the files in the template (**not even the init.js**). So to fix this for development my [fab](http://www.fabfile.org/) script copies over the css and js from the static folder and places them into their corresponding locations in my output directory.
+html5up uses [skel.js](https://github.com/n33/skel) to handle responsiveness of their templates. For skel to work right css has to be available at the `{{ SITEURL }}/css/` path. I did not want to alter any of the files in the template (**not even the init.js**). So to fix this for development my [fab](http://www.fabfile.org/) script copies over the css and js from the static folder and places them into their corresponding locations in my output directory.
 Here's my fab script I call `collectstatic`:
 
 ```python
