@@ -14,7 +14,7 @@ This branch contains a close conversion of the original template. I'll add more 
  	- contact
  - Images
 
-###Template Breakdown
+### Template Breakdown
 ---------------------
 There are currently 12 templates:
 ```
@@ -32,12 +32,12 @@ There are currently 12 templates:
 └── pagination.html
 ```
 
-####Previews
+#### Previews
  - index.html (extends base.html)
 
 ![preview](preview.png "preview")
 
-####Caveats
+#### Caveats
 **1. skel.js**<br>
 html5up uses [skel.js](https://github.com/n33/skel) to handle responsiveness of their templates. For skel to work right css has to be available at the `{{ SITEURL }}/css/` path. I did not want to alter any of the files in the template (**not even the init.js**). So to fix this for development my [fab](http://www.fabfile.org/) script copies over the css and js from the static folder and places them into their corresponding locations in my output directory.
 Here's my fab script I call `collectstatic`:
@@ -91,14 +91,14 @@ This is how I structured my content directory:
     └── article1.md
 ```
 
-####To Do
+#### To Do
 [ ] Portfolio Category<br>
 [ ] `coolstuff.html` will pull from portfolio category<br>
 [ ] Add `Featured` and `FeaturedImage` attribute to content and templates<br>
 
 
 ============================
-####Template Info
+#### Template Info
 Twenty 1.0 by HTML5 UP<br>
 html5up.net | @n33co<br>
 Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
@@ -124,7 +124,7 @@ AJ<br>
 
 
 
-####Credits
+#### Credits
 Icons
  - Font Awesome (http://fortawesome.github.com/Font-Awesome/)
 
