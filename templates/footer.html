@@ -1,14 +1,21 @@
 <!-- Footer -->
+
+<style>
+#footer .mdi{
+  font-size: 4em;
+}
+</style>
+
 <footer id="footer">
 
     <ul class="icons">
       {% for title, link in SOCIAL %}
         <li>
-          <a href="{{ link }}" class="icon circle fa fa-{{ title }}"><span class="label">{{ title }}</span></a>
+          <a href="{{ link }}" class="mdi mdi-{{ title }}"><span class="label"></span></a>
         </li>
       {% endfor %}
     </ul>
 
-    <span class="copyright">&copy; Untitled. All rights reserved. Design: <a href="http://html5up.net">HTML5 UP</a>.</span>
+    <span class="copyright">&copy; Yeo Lab. All rights reserved. Design: <a href="http://html5up.net">HTML5 UP</a>.</span>
 
 </footer>

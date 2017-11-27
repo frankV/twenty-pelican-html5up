@@ -3,14 +3,30 @@
 {% block title %}{{ page.title|striptags }} | {{ super() }}{% endblock title %}
 
 {% block content %}
+<style>
+.image:before{
+  background-image: None;
+}
+.mdi {
+  font-size: 9em;
+  margin-top: -150px;
+}
+
+</style>
+
+
 <!-- Main -->
 <article id="main">
 
   <header class="special container">
-    <span class="icon fa-mobile"></span>
+    {% if not page.icon is defined %}
+    <span class="mdi mdi-gears"></span>
+    {% else %}
+    <span class="{{ page.icon }}"></span>
+    {% endif %}
     <h2>{{ page.title }}</h2>
     <!-- add page sub title here -->
-    <p>Where that in the center faces the nameless horrors alone.</p>
+    <!-- <p>Where that in the center faces the nameless horrors alone.</p> -->
   </header>
 
   <!-- One -->
@@ -27,7 +43,7 @@
   </section>
 
   <!-- Two -->
-  {% include 'most_recent.html' %}
+  <!-- {% include 'most_recent.html' %} -->
 
   </article>
 {% endblock content %}

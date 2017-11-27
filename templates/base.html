@@ -9,20 +9,50 @@
     <script src="/js/skel.min.js"></script>
     <script src="/js/skel-layers.min.js"></script>
     <script src="/js/init.js"></script>
-    <link rel="stylesheet" href="/css/pygment.css" />
+    <script src="/js/lightbox.js"></script>
+    <link rel="stylesheet" href="/css/pygment.css"/>
     <noscript>
         <link rel="stylesheet" href="/css/skel.css" />
         <link rel="stylesheet" href="/css/style.css" />
         <link rel="stylesheet" href="/css/style-noscript.css" />
+        <link href="/css/lightbox.css" rel="stylesheet"/>
     </noscript>
     <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="//cdn.materialdesignicons.com/1.3.41/css/materialdesignicons.min.css">
     <link  href="http://fonts.googleapis.com/css?family=Anonymous+Pro:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css" >
     <!--[if lte IE 8]><link rel="stylesheet" href="/css/ie/v8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie/v9.css" /><![endif]-->
     {% if FEED_RSS %}
         <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }}-Feed" />
     {% endif %}
+    <style>
+    body, #skel-layers-wrapper {
+    background: #CFF4EF;}
+    </style>
+
+    <!-- Favicon for all devices and sizes -->
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="&nbsp;"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="/mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="/mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="/mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="/mstile-310x310.png" />
+
 
     {% block head %}
     <title>{% block title %}{{ SITENAME }} {{ TAGLINE }}{% endblock title %}</title>
@@ -38,7 +68,7 @@
     <!-- Header -->
     <header id="header" {% if page_name == 'index' %}class="alt"{% endif %}>
         <h1 class="logo">
-            <a href="{{ SITEURL }}">{{ SITENAME }}, design Twenty <span> by html5 up</span></a>
+            <a href="{{ SITEURL }}">{{ SITENAME }}</a>
         </h1>
         <nav id="nav">
             <ul>
@@ -51,19 +81,7 @@
                 {% for title, link in MENUITEMS %}
                     <li><a href="{{ link }}">{{ title }}</a></li>
                 {% endfor %}
-                <li class="submenu">
-                    <a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Blog</a>
-                    <ul>
-                        {% for cat, null in categories %}
-                            {% if cat != 'blog' %}
-                            <li {% if cat == category %}class="active"{% endif %}>
-                                <a href="{{ SITEURL }}/category/{{ cat|lower }}/">{{ cat }}</a>
-                            </li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                </li>
-                <li><a href="#" class="button special">Sign Up</a></li>
+                <li><a href="/people" class="button special">People</a></li>
             </ul>
         </nav>
     </header>

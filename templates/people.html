@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Main -->
+
+<!-- Toggle serious/silly photo -->
+<script>
+function setImage(element, url) {
+  jQuery(element).find('img')[0].src = url;
+}
+</script>
+
+
+<style>
+.image:before{
+  background-image: None;
+}
+.image.feature img{
+  /*Make headshots circles*/
+  border-radius: 50%;
+}
+.image.feature {
+  margin: 0;
+}
+section {
+  margin: 0 0 4em 0;
+}
+.mdi {
+  font-size: 9em;
+  margin-top: -150px;
+}
+body, #skel-layers-wrapper {
+background: #CFF4EF;}
+.row.labphoto{
+  width: 100%;
+  margin-bottom: 5em;
+}
+.headshot-placeholder {
+    background-image: url("/image/people/headshot_placeholder.png");
+    display: flex;
+    border-radius: 50%;
+    /*height: 142px;*/
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 124px;
+    font-weight: bold;
+    font-family: 'Open Sans';
+}
+</style>
+
+
+<article id="main">
+
+  <header class="special container">
+    <span class="mdi mdi-account-multiple"></span>
+    <h2>{{ page.title }}</h2>
+    <!-- add page sub title here -->
+    <p>Team RNA.</p>
+  </header>
+
+  <!-- One -->
+  <section class="wrapper style4 container">
+
+    <div class="row labphoto">
+      <a onmouseover="setImage(this, '/images/people/2015_lab_photo_silly.png');"
+      onmouseout="setImage(this, '/images/people/2015_lab_photo.png');" alt="#YEOLO">
+    <img src="/images/people/2015_lab_photo.png" alt="#YEOLO" name="img1" width="100%"/>
+  </a>
+  </div>
+    <!-- Content -->
+      <div class="content">
+        {% for display_name, position in PEOPLE_POSITION_ORDER if not page.persons[position]|length == 0 %}
+
+          <section>
+            <h3>{{ display_name }}</h3>
+            {% for name, person in page.persons[position].items() %}
+              {% if loop.first or (loop.index-1) is divisibleby(6) %}
+              <div class="row">
+              {% endif %}
+              <div class="2u">
+                 <!-- The initial slash is important because otherwise the links
+                  are relative to the "people" page -->
+                  <a href="/{{ person.url }}" class="image feature">
+                  {% if person.headshot %}
+                    <img src="{{ person.headshot }}" alt="{{ name }}"/>
+                  {% else %}
+                  <div class="headshot-placeholder">
+                    <img src="/images/people/headshot_placeholder.png">
+                  </div>
+                  {% endif %}
+                  {{ person.title }}
+                  {% if person.alumni_or_current.lower() == 'alumni' %}
+                    <strong>{{ person.current_position }}</strong><br>
+                    {{ '{}-{}'.format(person.date.year,
+                                      person.end_date.split('-')[0]) }}<br>
+                  {% endif %}
+                </a>
+              </div>
+
+              {% if loop.last  or loop.index is divisibleby(6) %}
+              <!-- If it's the last person in the section or we've gotten to
+              6 people ("2u" class means out of the 12 columns of the webpage,
+              each person's photo and name will take up 2 units, hence divisible
+              by 6), close the row -->
+                </div>
+              {% endif %}
+
+            {% endfor %}
+         <!-- Close the section if we're out of people -->
+         </section>
+        {% endfor %}
+
+      {{ page.content }}
+      </div>
+
+  </section>
+
+
+  </article>
+{% endblock content %}

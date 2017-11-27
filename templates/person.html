@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title|striptags }} | {{ super() }}{% endblock title %}
+
+{% block content %}
+<style>
+.image:before{
+  background-image: None;
+}
+img.clown {
+  height: 100%;
+  /*Border-radius 50% makes it a circle*/
+  border-radius: 50%;
+  margin-top: -49px;
+}
+</style>
+<!-- Main -->
+<article id="main">
+
+  <header class="special container">
+    {% if page.headshot %}
+    <span class="icon"><img src="{{ page.headshot }}" class="clown"></span>
+    {% else %}
+    <span class="icon"><img src="/yeolab_favicon.svg" class="clown"></span>
+    {% endif %}
+    <h2>{{ page.title }}</h2>
+    <!-- add page sub title here -->
+    <p>{{ page.position }}
+
+      <!-- If there's a position suffix
+      (e.g. Bioinformatics Analyst "I, (Ph.D.))"", add it -->
+      {% if page.position_suffix %}
+        {{ page.position_suffix }}
+      {% endif %}
+
+      <!-- If they are alumni, specify -->
+      {% if page.alumni_or_current == "Alumni" %}
+        {{ page.alumni_or_current }}
+      {% endif %}<br>
+
+      <!-- Add program/department affiliation, if applicable -->
+    {% if page.affiliation %}
+      {{ page.affiliation }}<br>
+    {% endif %}
+
+    <!-- Add their fellowship, if applicable -->
+    {% if page.fellowship %}
+      {{ page.fellowship }} Fellow<br>
+    {% endif %}
+    {{ page.email }}</p>
+  </header>
+
+  <!-- One -->
+    <section class="wrapper style4 container">
+
+      <!-- Content -->
+        <div class="content">
+          <section>
+            <p>{{ page.content }}</p>
+          </section>
+        </div>
+
+    </section>
+
+  </article>
+
+{% endblock content %}

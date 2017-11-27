@@ -3,82 +3,71 @@
 {% include 'banner.html' %}
 
 {% block content %}
+
+<style>
+h1, h2, h3, h4, h5, h6{
+  margin-bottom: 0.25em
+}
+
+.wrapper a{
+  color: #277D73;
+}
+</style>
 <!-- Main -->
 <article id="main">
-
-  <header class="special container">
-    <span class="icon fa-bar-chart-o"></span>
-    <h2>As this is my <strong>twentieth</strong> freebie for HTML5 UP<br />
-    I decided to give it a really creative name.</h2>
-    <p>Turns out <strong>Twenty</strong> was the best I could come up with. Anyway, lame name aside,<br />
-    it's minimally designed, fully responsive, built on HTML5/CSS3/<strong>skel</strong>,
-    and, like all my stuff,<br />
-    released for free under the <a href="http://html5up.net/license">Creative Commons Attribution 3.0</a> license. Have fun!</p>
-  </header>
 
   <!-- One -->
   <section class="wrapper style2 container special-alt">
     <div class="row half">
-      <div class="8u">
-
-        <header>
-          <h2>Behold the <strong>icons</strong> that visualize what you’re all about. or just take up space. your call bro.</h2>
-        </header>
-        <p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu comteger ut fermentum lorem. Lorem ipsum dolor sit amet. Sed tristique purus vitae volutpat ultrices. eu elit eget commodo. Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo.</p>
-        <footer>
-          <ul class="buttons">
-            <li><a href="#" class="button">Find Out More</a></li>
-          </ul>
-        </footer>
-
+      <div class="6u">
+        <h2>Contact&nbsp;Us</h2>
+        <h3>Lab&nbsp;Location</h3>
+        <p><a href="http://www.sanfordconsortium.org/">Sanford Consortium for Regenerative Medicine</a>
+        (<a href="https://www.google.com/maps/place/sanford+consortium/data=!4m2!3m1!1s0x0:0x97741ae2ff2bd85a?sa=X&amp;ved=0CCQQrwswAGoVChMIyZ7S3NuuyAIVyTOICh1eCQ1-">map</a>)<br>
+        <p class="tab">
+            Room 3109-13, Wet Lab<br>
+            Room 3114/3115, Bioinformatics Lab<br>
+            Room 3008, Gene&#8217;s Office<br>
+        </p></p>
+        <h3>Mailing&nbsp;Address</h3>
+        <p>2880 Torrey Pines Scenic Dr.<br>
+        Room 3109-13/Yeo Lab <br>
+        La Jolla, <span class="caps">CA</span> 92037<br></p>
+        <h3>Telephone</h3>
+        <p>(858) 246-1497, Wet Lab <br>
+        (858) 534-9322, Bioinformatics Lab<br></p>
+        <h3>Fax</h3>
+        <p>(858)&nbsp;246-1579</p>
+        <h3>Email</h3>
+        <p>geneyeo at ucsd dot&nbsp;edu</p>
       </div>
-      <div class="4u skel-cell-important">
+      <div class="6u skel-cell-important">
+        <a class="twitter-timeline" href="https://twitter.com/yeo_lab" data-widget-id="335485531104370688">Tweets by @yeo_lab</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          <h3 style="margin-top: 2em;">Affiliated&nbsp;Departments</h3>
+          <p><a href="http://healthsciences.ucsd.edu/som/cmm/Pages/default.aspx">Cellular and Molecular Medicine</a><br>
+          <a href="http://igm.ucsd.edu/genomics/">Institute of Genomic Medicine</a><br>
+          <a href="http://stemcells.ucsd.edu/"><span class="caps">UCSD</span> Stem Cell Program</a><br>
+          <a href="http://cancer.ucsd.edu/Pages/default.aspx"><span class="caps">UCSD</span> Moores Cancer Center</a><br>
+          <a href="http://matsci.ucsd.edu/">Material Sciences Graduate Program</a><br>
+          <a href="http://biomedsci.ucsd.edu/">Biomedical Sciences Graduate Program</a><br>
+          <a href="http://bioinformatics.ucsd.edu/">Bioinformatics Graduate Program</a><br>
+          <a href="http://biology.ucsd.edu/">Biological Sciences Graduate Program</a><br></p></p>
 
-        <ul class="feature-icons">
-          <li><span class="icon fa-clock-o"><span class="label">Feature 1</span></span></li>
-          <li><span class="icon fa-volume-up"><span class="label">Feature 2</span></span></li>
-          <li><span class="icon fa-laptop"><span class="label">Feature 3</span></span></li>
-          <li><span class="icon fa-inbox"><span class="label">Feature 4</span></span></li>
-          <li><span class="icon fa-lock"><span class="label">Feature 5</span></span></li>
-          <li><span class="icon fa-cog"><span class="label">Feature 6</span></span></li>
-        </ul>
+        <!-- <ul class="feature-icons"> -->
+          <!-- <li><span class="mdi mdi-bowling"></span></li>
+          <li><span class="mdi mdi-laptop"></span></li>
+          <li><span class="mdi mdi-beaker-outline"></span></li>
+          <li><span class="mdi mdi-chart-bar"></span></li>
+          <li><span class="mdi mdi-needle"></span></li>
+          <li><span class="mdi mdi-file-image"></span></li> -->
+        <!-- </ul> -->
 
       </div>
     </div>
   </section>
 
-  <!-- Two -->
-  <section class="wrapper style1 container special">
-    <div class="row">
-
-      {% for article in articles_page.object_list %}
-      <div class="4u">
-
-        <section>
-          <span class="icon feature fa-{{ article.icon }}"></span>
-          <header>
-            <a href="{{ SITEURL }}/{{ article.url }}" rel='bookmark'><h3>{{ article.title }}</h3></a>
-          </header>
-          <p>{{ article.content[:196]|striptags }}</p>
-          <footer>
-              <ul class="buttons">
-                  <li><a href="{{ SITEURL }}/{{ article.url }}" class="button small">Read More</a></li>
-              </ul>
-          </footer>
-        </section>
-
-      </div>
-      {% endfor %}
-
-    </div> <!-- /.row -->
-
-    {% include 'pagination.html' %}
-
-  </section> <!-- /section -->
 
 </article>
-
-{% include 'coolstuff.html' %}
-{% include 'cta.html' %}
 
 {% endblock content %}

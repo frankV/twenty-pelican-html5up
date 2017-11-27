@@ -1,0 +1,33 @@
+
+
+{% extends "base.html" %}
+
+{% block title %}{{ page.title|striptags }} | {{ super() }}{% endblock title %}
+
+{% block content %}
+
+<style>
+section {
+  margin: 0 0 4em 0;
+}
+body, #skel-layers-wrapper {
+background: #CFF4EF;}
+
+</style>
+
+<section class="wrapper style4 container">
+
+<!-- Content -->
+  <div class="content">
+    <section>
+      <!-- <a href="#" class="image feature"><img src="images/pic04.jpg" alt="" /></a> -->
+      <p>{{ page.content }}</p>
+    </section>
+
+
+
+    </div>
+
+</section>
+
+{% endblock content %}
